@@ -22,9 +22,11 @@ steps:
     versionSpec: '5.9.1'
 
 - task: Npm@1
-  displayName: 'Run npm install'
   inputs:
-    verbose: false
+    command: 'install'
+    verbose: true
+    customRegistry: 'useFeed'
+    customFeed: 'dfcf6eb8-ae56-43c2-b3a6-215fba372051/289ef344-3dcb-48eb-878c-4da60feb39d2'
 
 - script: './node_modules/.bin/node-sass $(wwwrootDir) --output $(wwwrootDir)'
   displayName: 'Compile Sass assets'
